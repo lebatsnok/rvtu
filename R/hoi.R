@@ -5,7 +5,7 @@
 #'
 #' @return faktorskooride vektor (puuduvate andmetega ridades on faktorskoori asemele kirjutatud NA)
 #' @export
-hoi <- function(x, mud = hoi_mudel, ...) {
+vthoi <- function(x, mud = hoi_mudel, ...) {
   nms <- names(coef(mud))
   fs <- factor.scores(mud, x, ...)$score.dat$z1
   nanai <- rowSums(is.na(x))
