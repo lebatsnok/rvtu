@@ -2,8 +2,10 @@
 
 Paigaldamine: `remotes::install_github("lebatsnok/rvtu")`
 
+[RVTU andmetabelite metainfo kasutamine ja haldamine](#metainfo)
+[Vaimse tervisega seotud heaolu indeksi (VTHOI) arvutamine](#vthoi)
 
-### RVTU andmetabelite võti ja abifunktsioonid
+### <a name="metainfo"></a>RVTU andmetabelite metainfo kasutamine ja haldamine
 
 #### Võtmes sisalduva metainfo kasutamine
 
@@ -49,7 +51,7 @@ Näited:
 * `label_for_export`  -- lisa tunnusele faktorite väärtused (nt SPSS-i failina salvestamiseks)
 * `Load`              -- loe `.rda` failist (sarnane funktsiooniga `base::load`, kuid töökeskkonda ei muudeta, vaid tagastatakse väärtus listina, mille komponentideks on kõik failis salvestatud objektod)
 
-### Vaimse tervisega seotud heaolu indeksi (VTHOI) arvutamine
+### <a name="vthoi"></a>Vaimse tervisega seotud heaolu indeksi (VTHOI) arvutamine
 
 Funktsioon `vthoi` vaimse tervisega seotud heaolu indeksi arvutamiseks. 
 

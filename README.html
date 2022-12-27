@@ -365,8 +365,10 @@ pre code {
 <h2>RVTU funktsioonid</h2>
 <p>Paigaldamine:
 <code>remotes::install_github(&quot;lebatsnok/rvtu&quot;)</code></p>
-<div id="rvtu-andmetabelite-võti-ja-abifunktsioonid" class="section level3">
-<h3>RVTU andmetabelite võti ja abifunktsioonid</h3>
+<p><a href="#vthoi">Vaimse tervisega seotud heaolu indeksi (VTHOI)
+arvutamine</a></p>
+<div id="rvtu-andmetabelite-metainfo-kasutamine-ja-haldamine" class="section level3">
+<h3>RVTU andmetabelite metainfo kasutamine ja haldamine</h3>
 <div id="võtmes-sisalduva-metainfo-kasutamine" class="section level4">
 <h4>Võtmes sisalduva metainfo kasutamine</h4>
 <p>RVTU andmetabeleid säilitatakse R-is andmetabeline (data.frame),
@@ -377,14 +379,16 @@ väärtused jne). Võtmes on iga tabeli <code>x</code> tunnuse kohta 1 rida
 ja kuitahes palju veerge; veerus nimega <code>NAME</code> peab olema
 tunnuse nimi. Seda metainfot kasutavad järgmised funktsioonid:</p>
 <ul>
-<li>grab(x, EXPR) – vali andmetabelist x kasutades tunnuste
+<li><code>grab(x, EXPR)</code> – vali andmetabelist x kasutades tunnuste
 metainfot</li>
-<li>key(x, expr) – andmetabeli x võti (või osa sellest)</li>
-<li>%has% – x %has% y - kas x-is esineb alamstring y, suur-ja
-väiketähtedel vahet tegemata (nt “Linnavalitsu %has%”linn” –&gt;
+<li><code>key(x, expr)</code> – andmetabeli x võti (või osa
+sellest)</li>
+<li><code>%has%</code> – x %has% y - kas x-is esineb alamstring y,
+suur-ja väiketähtedel vahet tegemata (nt “Linnavalitsu %has%”linn” –&gt;
 TRUE)</li>
-<li>%Has% – x %Has% y - sama, mis eelmine, kuid tehakse vahet suur- ja
-väiketähtedel nt “Linnavalitsus” %has% “Linn” –&gt; TRUE</li>
+<li><code>%Has%</code> – x %Has% y - sama, mis eelmine, kuid tehakse
+vahet suur- ja väiketähtedel nt “Linnavalitsus” %has% “Linn” –&gt;
+TRUE</li>
 </ul>
 <p>Näited:</p>
 <p><code>grab(x, NAME %has% &quot;eek&quot;)</code> – kõik tunnused andmetabelist
@@ -398,46 +402,53 @@ on “EEK”</p>
 <div id="võtme-asendamine-ja-täiendamine" class="section level4">
 <h4>Võtme asendamine ja täiendamine</h4>
 <ul>
-<li>key&lt;- – andmetabeli võtme asendamine (eeldatakse, et võtmes on
-täpselt 1 rida iga andmetabeli tunnuse kohta)</li>
-<li>fkey&lt;- – andmetabeli võtme asendamine (võti võib vajada
-korrastamist)</li>
-<li>add2key – võtmele 1 või mitme rea lisamine</li>
-<li>regularize_key – andmetabeli võtme korrastamine (tulemuseks on võti,
-kus on täpselt 1 rida iga andmetabeli tunnuse kohta)</li>
+<li><code>key&lt;-</code> – andmetabeli võtme asendamine (eeldatakse, et
+võtmes on täpselt 1 rida iga andmetabeli tunnuse kohta)</li>
+<li><code>fkey&lt;-</code> – andmetabeli võtme asendamine (võti võib
+vajada korrastamist)</li>
+<li><code>add2key</code> – võtmele 1 või mitme rea lisamine</li>
+<li><code>regularize_key</code> – andmetabeli võtme korrastamine
+(tulemuseks on võti, kus on täpselt 1 rida iga andmetabeli tunnuse
+kohta)</li>
 </ul>
 </div>
 <div id="faktortunnuste-tasemed" class="section level4">
 <h4>Faktortunnuste tasemed</h4>
 <ul>
-<li>paste_levels –</li>
-<li>split_levels –</li>
-<li>use_labels – kasuta koodide asemel ‘silte’</li>
-<li>factorize – teisenda tunnus ‘faktoris’ R-i mõttes</li>
-<li>factorize_all – teisenda kõik tunnused andmetabelis x
+<li><code>paste_levels</code> –</li>
+<li><code>split_levels</code> –</li>
+<li><code>use_labels</code> – kasuta koodide asemel ‘silte’</li>
+<li><code>factorize</code> – teisenda tunnus ‘faktoris’ R-i mõttes</li>
+<li><code>factorize_all</code> – teisenda kõik tunnused andmetabelis x
 faktoriteks</li>
 </ul>
 </div>
 <div id="skooride-arvutamine" class="section level4">
 <h4>Skooride arvutamine</h4>
 <ul>
-<li>compute_scores – liida samasse skaalasse kuuluvad väited /
-küsimused</li>
+<li><code>compute_scores</code> – liida samasse skaalasse kuuluvad
+väited / küsimused</li>
 </ul>
 </div>
 <div id="muu" class="section level4">
 <h4>Muu</h4>
 <ul>
-<li>include_all</li>
-<li>regularize_mk</li>
-<li>write_xlsx</li>
-<li>label_for_export</li>
-<li>Load</li>
+<li><code>include_all</code></li>
+<li><code>regularize_mk</code> – maakonnatunnuse teisendamine</li>
+<li><code>write_xlsx</code> – salvesta andmetabel koos võtmega exceli
+tablelina</li>
+<li><code>label_for_export</code> – lisa tunnusele faktorite väärtused
+(nt SPSS-i failina salvestamiseks)</li>
+<li><code>Load</code> – loe <code>.rda</code> failist (sarnane
+funktsiooniga <code>base::load</code>, kuid töökeskkonda ei muudeta,
+vaid tagastatakse väärtus listina, mille komponentideks on kõik failis
+salvestatud objektod)</li>
 </ul>
 </div>
 </div>
 <div id="vaimse-tervisega-seotud-heaolu-indeksi-vthoi-arvutamine" class="section level3">
-<h3>Vaimse tervisega seotud heaolu indeksi (VTHOI) arvutamine</h3>
+<h3><a name="vthoi"></a>Vaimse tervisega seotud heaolu indeksi (VTHOI)
+arvutamine</h3>
 <p>Funktsioon <code>vthoi</code> vaimse tervisega seotud heaolu indeksi
 arvutamiseks.</p>
 <p>Kasutamine:</p>
