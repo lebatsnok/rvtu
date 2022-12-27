@@ -1,9 +1,8 @@
 ## RVTU funktsioonid
 
-Paigaldamine: `remotes::install_github("lebatsnok/rvtu")`
-
-[RVTU andmetabelite metainfo kasutamine ja haldamine](#metainfo)
-[Vaimse tervisega seotud heaolu indeksi (VTHOI) arvutamine](#vthoi)
+* Paigaldamine: `remotes::install_github("lebatsnok/rvtu")`
+* [RVTU andmetabelite metainfo kasutamine ja haldamine](#metainfo)
+* [Vaimse tervisega seotud heaolu indeksi (VTHOI) arvutamine](#vthoi)
 
 ### <a name="metainfo"></a>RVTU andmetabelite metainfo kasutamine ja haldamine
 
